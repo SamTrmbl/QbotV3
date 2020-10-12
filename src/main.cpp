@@ -1,5 +1,4 @@
 #include <Arduino.h>
-#include <PS2X_lib.h> 
 #include <Manette.h>
 
 int vitesse;
