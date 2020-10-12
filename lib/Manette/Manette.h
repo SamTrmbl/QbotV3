@@ -10,6 +10,9 @@ class Manette{
     Manette();
     void begin();
     int getLY();
+    int getLX();
+    int getRY();
+    int getRX();
 
     private:
     PS2X _ps2x;

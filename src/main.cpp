@@ -1,6 +1,7 @@
 #include <Arduino.h>
 #include <Manette.h>
 
+
 int vitesse;
 bool direction;
 
@@ -38,22 +39,18 @@ void simpleDrive(float vitesse){
   vitesseArD(vitesse);
 }
 
-//PS2X ps2x;
 Manette manette;
 
 void setup() {
   // put your setup code here, to run once:
 Serial.begin(9600);
 manette.begin();
-//ps2x.config_gamepad(50, 51, 53, 52, false, false);
 
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  //Serial.println(manette.getLY());
-  simpleDrive(manette.getLY());
-  //ps2x.read_gamepad();
+  //Serial.println(manette.getLX());
+  simpleDrive(manette.getRY());
 
-  //simpleDrive(127-ps2x.Analog(PSS_LY));
 }
