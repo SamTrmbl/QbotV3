@@ -34,6 +34,8 @@ void vitesseArD(float vitesse){
 
 ////////////Drive modes
 
+/////Faire un STOP
+
 void simpleDrive(float vitesse){
   
   vitesseAvG(vitesse);

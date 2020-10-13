@@ -9,13 +9,22 @@ class Manette{
     public:
     Manette();
     void begin();
-    int getLY();
-    int getLX();
-    int getRY();
-    int getRX();
+
+    int axis(byte axe);
+    int LY();
+    int LX();
+    int RY();
+    int RX();
+
+    bool bouton (int bouton, bool debouncer);
+    bool triangle();
+    bool triangleD();
 
     private:
     PS2X _ps2x;
+    byte _axe;
+    int _bouton;
+    bool _debouncer;
         
 };
 

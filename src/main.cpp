@@ -8,14 +8,15 @@ Manette manette;
 void setup() {
   // put your setup code here, to run once:
 Serial.begin(9600);
-//manette.begin();
+manette.begin();
+
 
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  Serial.println(getEncodeurAvG());
-  //simpleDrive(manette.getLY());
   
+  
+
 
 }
