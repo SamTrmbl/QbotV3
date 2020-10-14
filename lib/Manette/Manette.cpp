@@ -54,6 +54,19 @@ bool Manette::bouton(int bouton, bool debouncer){
 
 bool Manette::triangle(){return bouton(PSB_TRIANGLE,false);}
 bool Manette::triangleToggle(){return bouton(PSB_TRIANGLE,true);}
-
+bool Manette::square(){return bouton(PSB_TRIANGLE,false);}
+bool Manette::squareToggle(){return bouton(PSB_SQUARE,true);}
+bool Manette::circle(){return bouton(PSB_CIRCLE,false);}
+bool Manette::circleToggle(){return bouton(PSB_CIRCLE,true);}
+bool Manette::cross(){return bouton(PSB_CROSS,false);}
+bool Manette::crossToggle(){return bouton(PSB_CROSS,true);}
+bool Manette::dPadUp(){return bouton(PSB_PAD_UP,false);}
+bool Manette::dPadUpToggle(){return bouton(PSB_PAD_UP,true);}
+bool Manette::dPadRight(){return bouton(PSB_PAD_RIGHT,false);}
+bool Manette::dPadRightToggle(){return bouton(PSB_PAD_RIGHT,true);}
+bool Manette::dPadDown(){return bouton(PSB_PAD_DOWN,false);}
+bool Manette::dPadDownToggle(){return bouton(PSB_PAD_DOWN,true);}
+bool Manette::dPadLeft(){return bouton(PSB_PAD_LEFT,false);}
+bool Manette::dPadLeftToggle(){return bouton(PSB_PAD_LEFT,true);}
 
 //À faire pour tous les boutons, en version standard et debounce
