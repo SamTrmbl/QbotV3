@@ -35,6 +35,12 @@ void vitesseArD(int vitesse){
 ////////////Drive modes
 
 /////Faire un STOP
+void stop(){
+  vitesseAvD(0);
+  vitesseAvG(0);
+  vitesseArD(0);
+  vitesseArG(0);
+} 
 
 void simpleDrive(int vitesse){
   
