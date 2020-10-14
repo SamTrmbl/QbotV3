@@ -24,25 +24,18 @@ int Manette::axis(byte axe){//Cette fonction est callée explicitement pour chaq
 int Manette::LY(){
     return -axis(PSS_LY);
 }
-// à refaire comme LY ATTENTION AU SIGNE !
+
 int Manette::LX(){
-    _ps2x.read_gamepad();
-    delay(10);
-    return map(_ps2x.Analog(PSS_LX),0, 255,-100,100); //Afin que +100 soit à droite, -100 à gauche
+    return axis(PSS_LX); //Afin que +100 soit à droite, -100 à gauche
 }
 
 int Manette::RY(){
-    _ps2x.read_gamepad(); 
-    delay(10); 
-    return map(_ps2x.Analog(PSS_RY), 255,0,-100,100); //Afin que +100 soit en haut, -100 en bas
+    return -axis(PSS_RY); //Afin que +100 soit en haut, -100 en bas
 }
-
+    
 int Manette::RX(){
-    _ps2x.read_gamepad();
-    delay(10);
-    return map(_ps2x.Analog(PSS_RX),0, 255,-100,100); //Afin que +100 soit à droite, -100 à gauche
+    return axis(PSS_RX); //Afin que +100 soit à droite, -100 à gauche
 }
-
 
 bool Manette::bouton(int bouton, bool debouncer){
     _bouton = bouton;
