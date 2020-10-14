@@ -45,6 +45,7 @@ void simpleDrive(int vitesse){
 }
 
 void arcadeDrive(int vx, int vz){
+ //refaire algorithme
  int vg = vx+vz;
  int vd = vx-vz;
 
