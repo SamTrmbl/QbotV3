@@ -65,8 +65,14 @@ void arcadeDrive(int vx, int vz){
 /////Encodeurs
 
 Encoder encodeurAvG(18,31);
+Encoder encodeurAvD(19,32);
+Encoder encodeurArG(3,49);
+Encoder encodeurArD(2,A1);
 
-
+int distanceRestante(Encoder encodeur, int distance){
+  distance=encodeur.read();
+  return distance;
+}
 
 
 /*TODO : Créer les 4 encodeurs
@@ -75,6 +81,7 @@ int distance(Encoder encodeur){
   distance=encodeur.read();
   return calcul(distance);
 }
+
 Hardcoder chaque encodeur dans une fonction
 Créer une fonction qui fait la moyenne des 4 encodeurs
 Créer deux fonctions qui font la moyenne gauche et droite
