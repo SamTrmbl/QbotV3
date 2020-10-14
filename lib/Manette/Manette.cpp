@@ -55,4 +55,5 @@ bool Manette::bouton(int bouton, bool debouncer){
 bool Manette::triangle(){return bouton(PSB_TRIANGLE,false);}
 bool Manette::triangleToggle(){return bouton(PSB_TRIANGLE,true);}
 
+
 //À faire pour tous les boutons, en version standard et debounce

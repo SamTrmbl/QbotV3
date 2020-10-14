@@ -19,7 +19,12 @@ class Manette{
     bool bouton (int bouton, bool debouncer);
     bool triangle();
     bool triangleToggle();
-
+    bool square();
+    bool squareToggle();
+    bool circle();
+    bool circleToggle();
+    bool cross();
+    bool crossToggle();
     private:
     PS2X _ps2x;
     byte _axe;
