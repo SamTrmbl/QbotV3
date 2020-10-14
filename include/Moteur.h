@@ -16,19 +16,19 @@ void vitesseRoueLowLevel(int pinA, int pinB, int pinPWM, float vitesse){
   analogWrite(pinPWM, abs(vitesse));
 }
 
-void vitesseAvG(float vitesse){
+void vitesseAvG(int vitesse){
   vitesseRoueLowLevel(34,35,12,vitesse);
 }
 
-void vitesseAvD(float vitesse){
+void vitesseAvD(int vitesse){
   vitesseRoueLowLevel(36,37,8,vitesse);//inverse les pins A et B car le moteur de droite doit tourner à l'envers
 }
 
-void vitesseArG(float vitesse){
+void vitesseArG(int vitesse){
   vitesseRoueLowLevel(43,42,9,vitesse);
 }
 
-void vitesseArD(float vitesse){
+void vitesseArD(int vitesse){
   vitesseRoueLowLevel(A5,A4,5,vitesse);//inverse les pins A et B car le moteur de droite tourne à l'envers
 }
 
@@ -36,7 +36,7 @@ void vitesseArD(float vitesse){
 
 /////Faire un STOP
 
-void simpleDrive(float vitesse){
+void simpleDrive(int vitesse){
   
   vitesseAvG(vitesse);
   vitesseAvD(vitesse);
@@ -44,6 +44,15 @@ void simpleDrive(float vitesse){
   vitesseArD(vitesse);
 }
 
+void arcadeDrive(int vx, int vz){
+ int vg = vx+vz;
+ int vd = vx-vz;
+
+ vitesseAvG(vg);
+ vitesseAvD(vd);
+ vitesseArG(vg);
+ vitesseArD(vd);
+}
 
 
 /////Encodeurs

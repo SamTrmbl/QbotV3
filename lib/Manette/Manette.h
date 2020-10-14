@@ -18,7 +18,7 @@ class Manette{
 
     bool bouton (int bouton, bool debouncer);
     bool triangle();
-    bool triangleD();
+    bool triangleToggle();
 
     private:
     PS2X _ps2x;

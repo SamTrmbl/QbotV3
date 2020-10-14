@@ -16,6 +16,15 @@ manette.begin();
 void loop() {
   // put your main code here, to run repeatedly:
   
+  if (manette.triangle())
+  {
+    simpleDrive(50);
+  }
+  else
+  {
+    simpleDrive(0);
+  }
+  
   
 
 
