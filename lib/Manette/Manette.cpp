@@ -68,5 +68,21 @@ bool Manette::dPadDown(){return bouton(PSB_PAD_DOWN,false);}
 bool Manette::dPadDownToggle(){return bouton(PSB_PAD_DOWN,true);}
 bool Manette::dPadLeft(){return bouton(PSB_PAD_LEFT,false);}
 bool Manette::dPadLeftToggle(){return bouton(PSB_PAD_LEFT,true);}
+bool Manette::start(){return bouton(PSB_START,false);}
+bool Manette::startToggle(){return bouton(PSB_START,true);}
+bool Manette::select(){return bouton(PSB_SELECT,false);}
+bool Manette::selectToggle(){return bouton(PSB_SELECT,true);}
+bool Manette::L2(){return bouton(PSB_L2,false);}
+bool Manette::L2Toggle(){return bouton(PSB_L2,true);}
+bool Manette::R2(){return bouton(PSB_R2,false);}
+bool Manette::R2Toggle(){return bouton(PSB_R2,true);}
+bool Manette::L1(){return bouton(PSB_L1,false);}
+bool Manette::L1Toggle(){return bouton(PSB_L1,true);}
+bool Manette::R1(){return bouton(PSB_R1,false);}
+bool Manette::R1Toggle(){return bouton(PSB_R1,true);}
+bool Manette::L3(){return bouton(PSB_L3,false);}
+bool Manette::L3Toggle(){return bouton(PSB_L3,true);}
+bool Manette::R3(){return bouton(PSB_R3,false);}
+bool Manette::R3Toggle(){return bouton(PSB_R3,true);}
 
 //À faire pour tous les boutons, en version standard et debounce
