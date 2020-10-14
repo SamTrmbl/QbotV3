@@ -66,6 +66,19 @@ void arcadeDrive(int vx, int vz){
 
 Encoder encodeurAvG(18,31);
 
-int getEncodeurAvG(){
-  return encodeurAvG.read();//ne fonctionne pas à valider
+
+
+
+/*TODO : Créer les 4 encodeurs
+Créer la fonction "générique"
+int distance(Encoder encodeur){
+  distance=encodeur.read();
+  return calcul(distance);
 }
+Hardcoder chaque encodeur dans une fonction
+Créer une fonction qui fait la moyenne des 4 encodeurs
+Créer deux fonctions qui font la moyenne gauche et droite
+Créer une fonction reset (encodeur.write(0))
+
+
+*/
