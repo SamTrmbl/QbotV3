@@ -75,6 +75,13 @@ int distanceParcouru(Encoder encodeur){
   return distance;
 }
 
+void resetEncoder(){
+  encodeurAvG.write(0);
+  encodeurAvD.write(0);
+  encodeurArG.write(0);
+  encodeurArD.write(0);
+}
+
 
 /*TODO : Créer les 4 encodeurs
 Créer la fonction "générique"
