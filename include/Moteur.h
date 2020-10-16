@@ -70,7 +70,7 @@ Encoder encodeurAvD(19,32);
 Encoder encodeurArG(3,49);
 Encoder encodeurArD(2,A1);
 
-int distanceParcouru(Encoder encodeur){
+int distanceParcourue(Encoder encodeur){
   distance=encodeur.read();
   return distance;
 }
@@ -82,6 +82,21 @@ void resetEncoder(){
   encodeurArD.write(0);
 }
 
+int distanceAvg(){
+  return encodeurAvG.read();
+}
+
+int distanceAvD(){
+  return encodeurAvD.read();
+}
+
+int distanceArG(){
+  return encodeurArG.read();
+}
+
+int distanceArD(){
+  return encodeurArD.read();
+}
 
 /*TODO : Créer les 4 encodeurs
 Créer la fonction "générique"
