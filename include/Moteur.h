@@ -5,7 +5,7 @@
 ///////Définition des moteurs de chaque roues
 int vitesse;
 bool direction;
-int distance;
+int distanceLowLevelVariable;
 
 void vitesseRoueLowLevel(int pinA, int pinB, int pinPWM, float vitesse){
   //TODO ajouter une deadband (voir WPILIB)
@@ -71,8 +71,8 @@ Encoder encodeurArG(3,49);
 Encoder encodeurArD(2,A1);
 
 int distanceLowLevel(Encoder encodeur){
-  distance=encodeur.read();
-  return distance;
+  distanceLowLevelVariable=encodeur.read();
+  return distanceLowLevelVariable;
 }
 
 void resetEncoder(){
@@ -82,7 +82,7 @@ void resetEncoder(){
   encodeurArD.write(0);
 }
 
-int distanceAvg(){
+int distanceAvG(){
   return distanceLowLevel(encodeurAvG);
 }
 
@@ -98,6 +98,9 @@ int distanceArD(){
   return distanceLowLevel(encodeurArD);
 }
 
+double distance(){
+  return (distanceAvD + distanceAvG + distanceArG + distanceArD)/4;
+}
 /*TODO : Créer les 4 encodeurs
 Créer la fonction "générique"
 int distance(Encoder encodeur){
