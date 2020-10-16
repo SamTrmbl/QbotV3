@@ -99,7 +99,7 @@ int distanceArD(){
 }
 
 double distance(){
-  return (distanceAvD + distanceAvG + distanceArG + distanceArD)/4;
+  return (distanceAvD() + distanceAvG() + distanceArG() + distanceArD())/4;
 }
 /*TODO : Créer les 4 encodeurs
 Créer la fonction "générique"
