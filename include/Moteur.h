@@ -70,29 +70,25 @@ Encoder encodeurAvD(19,32);
 Encoder encodeurArG(3,49);
 Encoder encodeurArD(2,A1);
 
-int distanceParcouru(Encoder encodeur){
+int distanceParcourue(Encoder encodeur){
   distance=encodeur.read();
   return distance;
 }
 
 int distanceAvg(){
-  distance=encodeurAvG.read();
-  return distance;
+  return encodeurAvG.read();
 }
 
 int distanceAvD(){
-  distance=encodeurAvD.read();
-  return distance;
+  return encodeurAvD.read();
 }
 
 int distanceArG(){
-  distance=encodeurArG.read();
-  return distance;
+  return encodeurArG.read();
 }
 
 int distanceArD(){
-  distance=encodeurArD.read();
-  return distance;
+  return encodeurArD.read();
 }
 
 /*TODO : Créer les 4 encodeurs
