@@ -70,7 +70,7 @@ Encoder encodeurAvD(19,32);
 Encoder encodeurArG(3,49);
 Encoder encodeurArD(2,A1);
 
-int distanceParcourue(Encoder encodeur){
+int distanceLowLevel(Encoder encodeur){
   distance=encodeur.read();
   return distance;
 }
@@ -83,19 +83,19 @@ void resetEncoder(){
 }
 
 int distanceAvg(){
-  return encodeurAvG.read();
+  return distanceLowLevel(encodeurAvG);
 }
 
 int distanceAvD(){
-  return encodeurAvD.read();
+  return distanceLowLevel(encodeurAvD);
 }
 
 int distanceArG(){
-  return encodeurArG.read();
+  return distanceLowLevel(encodeurArG);
 }
 
 int distanceArD(){
-  return encodeurArD.read();
+  return distanceLowLevel(encodeurArD);
 }
 
 /*TODO : Créer les 4 encodeurs
@@ -108,7 +108,6 @@ int distance(Encoder encodeur){
 Hardcoder chaque encodeur dans une fonction
 Créer une fonction qui fait la moyenne des 4 encodeurs
 Créer deux fonctions qui font la moyenne gauche et droite
-Créer une fonction reset (encodeur.write(0))
 
 
 */
