@@ -101,16 +101,13 @@ int distanceArD(){
 double distance(){
   return (distanceAvD() + distanceAvG() + distanceArG() + distanceArD())/4;
 }
-/*TODO : Créer les 4 encodeurs
-Créer la fonction "générique"
-int distance(Encoder encodeur){
-  distance=encodeur.read();
-  return calcul(distance);
+
+double distanceDroite(){
+  return(distanceAvD() + distanceArD())/2;
 }
 
-Hardcoder chaque encodeur dans une fonction
-Créer une fonction qui fait la moyenne des 4 encodeurs
-Créer deux fonctions qui font la moyenne gauche et droite
+double distanceGauche(){
+  return(distanceAvG() + distanceArG())/2;
+}
 
 
-*/
