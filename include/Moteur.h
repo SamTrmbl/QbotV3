@@ -66,12 +66,12 @@ void arcadeDrive(int vx, int vz){
 /////Encodeurs
 
 Encoder encodeurAvG(18,31);
-Encoder encodeurAvD(19,32);
+Encoder encodeurAvD(19,38);
 Encoder encodeurArG(3,49);
 Encoder encodeurArD(2,A1);
 
-int distanceLowLevel(Encoder encodeur){
-  distanceLowLevelVariable=encodeur.read();
+long distanceLowLevel(Encoder encodeur){//long pour éviter l'overflow
+  distanceLowLevelVariable=encodeur.read()/1000;//diviser par 1000 car c'est environ un tour de shaft
   return distanceLowLevelVariable;
 }
 
@@ -82,32 +82,32 @@ void resetEncoder(){
   encodeurArD.write(0);
 }
 
-int distanceAvG(){
-  return distanceLowLevel(encodeurAvG);
+long distanceAvG(){
+  return -distanceLowLevel(encodeurAvG);
 }
 
-int distanceAvD(){
+long distanceAvD(){
   return distanceLowLevel(encodeurAvD);
 }
 
-int distanceArG(){
-  return distanceLowLevel(encodeurArG);
+long distanceArG(){
+  return -distanceLowLevel(encodeurArG);
 }
 
-int distanceArD(){
+long distanceArD(){
   return distanceLowLevel(encodeurArD);
 }
 
-double distance(){
+long distance(){
   return (distanceAvD() + distanceAvG() + distanceArG() + distanceArD())/4;
 }
 
-double distanceDroite(){
+long distanceDroite(){
   return(distanceAvD() + distanceArD())/2;
 }
 
-double distanceGauche(){
-  return(distanceAvG() + distanceArG())/2;
+long distanceGauche(){
+  return (distanceAvG() + distanceArG())/2;
 }
 
 

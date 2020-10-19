@@ -11,6 +11,10 @@ void Manette::begin(){
 
 }
 
+void Manette::read(){//Doit être placé au début du loop, remplace la lecture du gamepad dans la fonction bouton
+    _ps2x.read_gamepad();
+}
+
 int Manette::axis(byte axe){//Cette fonction est callée explicitement pour chaque axe ci-bas
     _axe = axe;
     _ps2x.read_gamepad();
@@ -40,8 +44,8 @@ int Manette::RX(){
 bool Manette::bouton(int bouton, bool debouncer){
     _bouton = bouton;
     _debouncer = debouncer;
-    _ps2x.read_gamepad();
-    delay(10);
+    //_ps2x.read_gamepad(); //Ceci fonctionne bien pour les fonctions de base, mais pas le toggle.
+    //delay(10);
     if (_debouncer)
     {
         return _ps2x.ButtonPressed(_bouton);
@@ -52,9 +56,12 @@ bool Manette::bouton(int bouton, bool debouncer){
     }
 }
 
+
+
+
 bool Manette::triangle(){return bouton(PSB_TRIANGLE,false);}
 bool Manette::triangleToggle(){return bouton(PSB_TRIANGLE,true);}
-bool Manette::square(){return bouton(PSB_TRIANGLE,false);}
+bool Manette::square(){return bouton(PSB_SQUARE,false);}
 bool Manette::squareToggle(){return bouton(PSB_SQUARE,true);}
 bool Manette::circle(){return bouton(PSB_CIRCLE,false);}
 bool Manette::circleToggle(){return bouton(PSB_CIRCLE,true);}
