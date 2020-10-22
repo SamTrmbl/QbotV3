@@ -2,13 +2,21 @@
 #include <Encoder.h> //Installer la librairie Encoder de Paul Stoffregen v1.4.1 dans platformio
 
 
+/////TODO IL FAUT RENOMMER CE FICHIER Qbot.h
+
+/////TODO Faire une fonction ultrason en adaptant ce lien https://create.arduino.cc/projecthub/abdularbi17/ultrasonic-sensor-hc-sr04-with-arduino-tutorial-327ff6
+
+//TODO faire une fonction limit switch qui retourne un bool
+
+//Pour savoir les # de pins pour Ultrasonic et Sensor, mettre un chiffre bidon, je vais m'occuper de les trouver
+
 ///////Définition des moteurs de chaque roues
 int vitesse;
 bool direction;
 int distanceLowLevelVariable;
 
 void vitesseRoueLowLevel(int pinA, int pinB, int pinPWM, float vitesse){
-  //TODO ajouter une deadband (voir WPILIB)
+  //TODO ajouter une deadband
   vitesse = constrain(vitesse,-100,100);// accepte des valeurs de -100 à 100
   vitesse = map(vitesse,-100,100,-255,255); //transfert ces valeurs sur la bonne plage PWM
   bool direction = vitesse >= 0; //avancer = True
@@ -52,7 +60,7 @@ void simpleDrive(int vitesse){
 }
 
 void arcadeDrive(int vx, int vz){
- //refaire algorithme
+ //TODO Normaliser les vitesse : après le calcul, diviser vg et vd par le max entre vg ou vd
  int vg = vx+vz;
  int vd = vx-vz;
 
@@ -60,6 +68,19 @@ void arcadeDrive(int vx, int vz){
  vitesseAvD(vd);
  vitesseArG(vg);
  vitesseArD(vd);
+}
+
+void mecanumDrive(int vx, int vy, int vz){
+ //TODO Normaliser les vitesses
+ int vAvG = vx+vz+vy;
+ int vAvD = vx-vz+vy;
+ int vArG = vx+vz-vy;
+ int vArD = vx-vz-vy;
+
+ vitesseAvG(vAvG);
+ vitesseAvD(vAvD);
+ vitesseArG(vArG);
+ vitesseArD(vArD);
 }
 
 

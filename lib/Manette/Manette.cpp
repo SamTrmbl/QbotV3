@@ -92,4 +92,3 @@ bool Manette::L3Toggle(){return bouton(PSB_L3,true);}
 bool Manette::R3(){return bouton(PSB_R3,false);}
 bool Manette::R3Toggle(){return bouton(PSB_R3,true);}
 
-//À faire pour tous les boutons, en version standard et debounce
