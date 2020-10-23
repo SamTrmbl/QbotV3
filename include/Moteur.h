@@ -15,6 +15,12 @@ int vitesse;
 bool direction;
 int distanceLowLevelVariable;
 
+bool antenne(){
+  
+
+
+}
+
 int ultrason(){
   Ultrasonic ultrason(1,1);
   int distanceUltraSonic;
@@ -39,7 +45,7 @@ void vitesseAvG(int vitesse){
 }
 
 void vitesseAvD(int vitesse){
-  vitesseRoueLowLevel(36,37,8,vitesse);//inverse les pins A et B car le moteur de droite doit tourner à l'envers
+  vitesseRoueLowLevel(37,36,8,vitesse);//inverse les pins A et B car le moteur de droite doit tourner à l'envers
 }
 
 void vitesseArG(int vitesse){
@@ -47,7 +53,7 @@ void vitesseArG(int vitesse){
 }
 
 void vitesseArD(int vitesse){
-  vitesseRoueLowLevel(A5,A4,5,vitesse);//inverse les pins A et B car le moteur de droite tourne à l'envers
+  vitesseRoueLowLevel(A4,A5,5,vitesse);//inverse les pins A et B car le moteur de droite tourne à l'envers
 }
 
 ////////////Drive modes
