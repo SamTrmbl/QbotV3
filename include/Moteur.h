@@ -1,5 +1,6 @@
 #include <Arduino.h>
 #include <Encoder.h> //Installer la librairie Encoder de Paul Stoffregen v1.4.1 dans platformio
+#include <Ultrasonic.h>
 
 
 /////TODO IL FAUT RENOMMER CE FICHIER Qbot.h
