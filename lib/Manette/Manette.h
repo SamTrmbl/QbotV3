@@ -46,7 +46,7 @@ class Manette{
     bool L1Toggle();
     bool R1();
     bool R1Toggle();
-    bool LJoystickButton();/////TODO Renommer R3 et L3 pour que ça soit plus clair que ce sont les boutons des jjoysticks
+    bool LJoystickButton();
     bool LJoystickButtonToggle();
     bool RJoystickButton();
     bool RJoystickButtonToggle();
