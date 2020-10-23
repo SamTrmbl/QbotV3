@@ -15,12 +15,6 @@ int vitesse;
 bool direction;
 int distanceLowLevelVariable;
 
-bool antenne(){
-  
-
-
-}
-
 int ultrason(){
   Ultrasonic ultrason(1,1);
   int distanceUltraSonic;
@@ -45,7 +39,7 @@ void vitesseAvG(int vitesse){
 }
 
 void vitesseAvD(int vitesse){
-  vitesseRoueLowLevel(37,36,8,vitesse);//inverse les pins A et B car le moteur de droite doit tourner à l'envers
+  vitesseRoueLowLevel(36,37,8,vitesse);//inverse les pins A et B car le moteur de droite doit tourner à l'envers
 }
 
 void vitesseArG(int vitesse){
@@ -53,12 +47,11 @@ void vitesseArG(int vitesse){
 }
 
 void vitesseArD(int vitesse){
-  vitesseRoueLowLevel(A4,A5,5,vitesse);//inverse les pins A et B car le moteur de droite tourne à l'envers
+  vitesseRoueLowLevel(A5,A4,5,vitesse);//inverse les pins A et B car le moteur de droite tourne à l'envers
 }
 
 ////////////Drive modes
 
-/////Faire un STOP
 void stop(){
   vitesseAvD(0);
   vitesseAvG(0);
@@ -75,7 +68,7 @@ void simpleDrive(int vitesse){
 }
 
 void arcadeDrive(int vx, int vz){
- //TODO Normaliser les vitesse : après le calcul, diviser vg et vd par le max entre vg ou vd
+ 
  int vg = vx+vz;
  int vd = vx-vz;
 
@@ -91,15 +84,16 @@ vd=vd/vMax;
 }
 
 void mecanumDrive(int vx, int vy, int vz){
- //TODO Normaliser les vitesses
+
  int vAvG = vx+vz+vy;
  int vAvD = vx-vz+vy;
  int vArG = vx+vz-vy;
  int vArD = vx-vz-vy;
 
-int vMaxAvGAvD = max(abs(vAvG),abs(vAvD));
-int vMaxArGArD = max(abs(vArG),abs(vArD));
-int vMax = max(abs(vMaxAvGAvD),abs(vMaxArGArD));
+
+int vMax = max(max(abs(vAvG),abs(vAvD))
+          ,max(abs(vArG),abs(vArD))
+          );
 
 vAvG= vAvG/vMax;
 vAvD= vAvD/vMax;
