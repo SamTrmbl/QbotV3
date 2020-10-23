@@ -64,6 +64,10 @@ void arcadeDrive(int vx, int vz){
  int vg = vx+vz;
  int vd = vx-vz;
 
+int vmax = max(abs(vg),abs(vd));
+vg=vg/vmax;
+vd=vd/vmax;
+
  vitesseAvG(vg);
  vitesseAvD(vd);
  vitesseArG(vg);
