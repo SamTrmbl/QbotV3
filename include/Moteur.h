@@ -65,9 +65,10 @@ void arcadeDrive(int vx, int vz){
  int vg = vx+vz;
  int vd = vx-vz;
 
-int vmax = max(abs(vg),abs(vd));
-vg=vg/vmax;
-vd=vd/vmax;
+int vMax = max(abs(vg),abs(vd));
+
+vg=vg/vMax;
+vd=vd/vMax;
 
  vitesseAvG(vg);
  vitesseAvD(vd);
@@ -81,6 +82,15 @@ void mecanumDrive(int vx, int vy, int vz){
  int vAvD = vx-vz+vy;
  int vArG = vx+vz-vy;
  int vArD = vx-vz-vy;
+
+int vMaxAvGAvD = max(abs(vAvG),abs(vAvD));
+int vMaxArGArD = max(abs(vArG),abs(vArD));
+int vMax = max(abs(vMaxAvGAvD),abs(vMaxArGArD));
+
+vAvG= vAvG/vMax;
+vAvD= vAvD/vMax;
+vArG= vArG/vMax;
+vArD= vArD/vMax;
 
  vitesseAvG(vAvG);
  vitesseAvD(vAvD);
