@@ -5,17 +5,21 @@
 Manette::Manette() : _ps2x() {
 }
 
-
+//Doit être placé au début du SETUP
+//initialise la manette aux bons ports
 void Manette::begin(){
-    _ps2x.config_gamepad(50, 51, 53, 52, false, false);//initialise la manette aux bons ports
+    _ps2x.config_gamepad(50, 51, 53, 52, false, false);
 
 }
 
-void Manette::read(){//Doit être placé au début du loop, remplace la lecture du gamepad dans la fonction bouton
+//Doit être placé au début du LOOP, 
+//remplace la lecture du gamepad dans la fonction bouton 
+void Manette::read(){
     _ps2x.read_gamepad();
 }
 
-int Manette::axis(byte axe){//Cette fonction est callée explicitement pour chaque axe ci-bas
+//Cette fonction est callée explicitement pour chaque axe ci-bas
+int Manette::axis(byte axe){
     _axe = axe;
     _ps2x.read_gamepad();
     delay(10);
@@ -26,7 +30,7 @@ int Manette::axis(byte axe){//Cette fonction est callée explicitement pour chaq
 }
 
 int Manette::LY(){
-    return -axis(PSS_LY);
+    return -axis(PSS_LY);//Afin que +100 soit à droite, -100 à gauche
 }
 
 int Manette::LX(){
@@ -41,10 +45,12 @@ int Manette::RX(){
     return axis(PSS_RX); //Afin que +100 soit à droite, -100 à gauche
 }
 
+
+//Fonction générique pour créer les boutons
 bool Manette::bouton(int bouton, bool debouncer){
     _bouton = bouton;
     _debouncer = debouncer;
-    //_ps2x.read_gamepad(); //Ceci fonctionne bien pour les fonctions de base, mais pas le toggle.
+    //_ps2x.read_gamepad(); //Ceci fonctionne bien pour les fonctions de base, mais pas le toggle. Voir read()
     //delay(10);
     if (_debouncer)
     {
@@ -58,7 +64,7 @@ bool Manette::bouton(int bouton, bool debouncer){
 
 
 
-
+//Créeation de tous les boutons, en version APPUYER et en version TOGGLE
 bool Manette::triangle(){return bouton(PSB_TRIANGLE,false);}
 bool Manette::triangleToggle(){return bouton(PSB_TRIANGLE,true);}
 bool Manette::square(){return bouton(PSB_SQUARE,false);}
