@@ -15,25 +15,24 @@ int vitesse;
 bool direction;
 int distanceLowLevelVariable;
 
+Ultrasonic ultrason(1,1);
+
 bool antenne(){
-  
-
-
+  return digitalRead(6);
 }
 
-int ultrason(){
-  Ultrasonic ultrason(1,1);
-  int distanceUltraSonic;
-
-  distanceUltraSonic= ultrason.read();
-  return distanceUltraSonic;
+int capteurUltrason(){
+  return  ultrason.read();
 }
 
 ///////Définition des moteurs de chaque roues
 void vitesseRoueLowLevel(int pinA, int pinB, int pinPWM, float vitesse){
-  //TODO ajouter une deadband
   vitesse = constrain(vitesse,-100,100);// accepte des valeurs de -100 à 100
+
   vitesse = map(vitesse,-100,100,-255,255); //transfert ces valeurs sur la bonne plage PWM
+    if(abs(vitesse)<5){
+    vitesse=0;
+  }
   bool direction = vitesse >= 0; //avancer = True
   digitalWrite(pinA,!direction); //Pour avancer, la pin A est à 0 et la pin B est à 1
   digitalWrite(pinB,direction);
@@ -45,7 +44,7 @@ void vitesseAvG(int vitesse){
 }
 
 void vitesseAvD(int vitesse){
-  vitesseRoueLowLevel(37,36,8,vitesse);//inverse les pins A et B car le moteur de droite doit tourner à l'envers
+  vitesseRoueLowLevel(36,37,8,vitesse);//inverse les pins A et B car le moteur de droite doit tourner à l'envers
 }
 
 void vitesseArG(int vitesse){
@@ -53,7 +52,7 @@ void vitesseArG(int vitesse){
 }
 
 void vitesseArD(int vitesse){
-  vitesseRoueLowLevel(A4,A5,5,vitesse);//inverse les pins A et B car le moteur de droite tourne à l'envers
+  vitesseRoueLowLevel(A5,A4,5,vitesse);//inverse les pins A et B car le moteur de droite tourne à l'envers
 }
 
 ////////////Drive modes
