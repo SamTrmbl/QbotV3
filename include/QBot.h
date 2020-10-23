@@ -1,14 +1,8 @@
 #include <Arduino.h>
-#include <Encoder.h> //Installer la librairie Encoder de Paul Stoffregen v1.4.1 dans platformio
+/*Les librairies suivantes n'ont pas à être installée
+Elles sont appellées dans le platformio.ini*/
+#include <Encoder.h>
 #include <Ultrasonic.h>
-
-
-
-/////TODO Faire une fonction ultrason en adaptant ce lien https://create.arduino.cc/projecthub/abdularbi17/ultrasonic-sensor-hc-sr04-with-arduino-tutorial-327ff6  FAIT
-
-//TODO faire une fonction limit switch qui retourne un bool
-
-//Pour savoir les # de pins pour Ultrasonic et Sensor, mettre un chiffre bidon, je vais m'occuper de les trouver
 
 
 
@@ -28,7 +22,7 @@ void vitesseRoueLowLevel(int pinA, int pinB, int pinPWM, float vitesse){
   _vitesse = constrain(_vitesse,-100,100);// accepte des valeurs de -100 à 100
 
   _vitesse = map(_vitesse,-100,100,-255,255); //transfert ces valeurs sur la bonne plage PWM
-  if(abs(_vitesse)<5){//dead band
+  if(abs(_vitesse)<20){//dead band
     _vitesse=0;
   }
   bool direction = _vitesse >= 0; //avancer = True
@@ -75,10 +69,11 @@ void arcadeDrive(int vx, int vz){//Avancer et tourner. +x = avant, +z = tourne h
  int vg = vx+vz;
  int vd = vx-vz;
 
-int vMax = max(abs(vg),abs(vd));//normalisation des vitesses
+/*int vMax = max(abs(vg),abs(vd));//normalisation des vitesses
 
-vg=vg/vMax;
-vd=vd/vMax;
+if(vMax>100){vg=vg/vMax*100;
+vd=vd/vMax*100;}
+*/
 
  vitesseAvG(vg);
  vitesseAvD(vd);
@@ -94,16 +89,16 @@ void mecanumDrive(int vx, int vy, int vz){//+x = en avant, +y = droite, +z = hor
  int vArG = vx+vz-vy;
  int vArD = vx-vz-vy;
 
-//normalisation
-int vMax = max(
+//TODOnormalisation à adapter selon arcadeDrive
+/*int vMax = max(
                 max(abs(vAvG),abs(vAvD)),
                 max(abs(vArG),abs(vArD))
           );
 
-vAvG= vAvG/vMax;
-vAvD= vAvD/vMax;
-vArG= vArG/vMax;
-vArD= vArD/vMax;
+vAvG= vAvG/vMax*100;
+vAvD= vAvD/vMax*100;
+vArG= vArG/vMax*100;
+vArD= vArD/vMax*100;*/
 
  vitesseAvG(vAvG);
  vitesseAvD(vAvD);

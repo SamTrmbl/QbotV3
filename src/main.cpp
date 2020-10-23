@@ -1,5 +1,5 @@
 #include <Manette.h>//Le dossier (pas le zip) de la librairie P2X_lib doit être dans le dossier "lib"
-#include <Qbot.h>//La librairie Encoder de Paul Stoffegen v 1.4.1 doit être installée dans Platformio
+#include <Qbot.h>
 
 Manette manette;
 
@@ -14,7 +14,11 @@ void loop() {
 
   manette.read();
 
- // arcadeDrive(manette.LY(), manette.RX());
- simpleDrive(manette.LY());
+
+
+
+  arcadeDrive(manette.LY(), manette.RX());
+  Serial.println(distance());
+ //simpleDrive(manette.LY());
 
 }
