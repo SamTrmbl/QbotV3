@@ -57,7 +57,6 @@ void vitesseArD(int vitesse){
 
 ////////////Drive modes
 
-/////Faire un STOP
 void stop(){
   vitesseAvD(0);
   vitesseAvG(0);
@@ -74,7 +73,7 @@ void simpleDrive(int vitesse){
 }
 
 void arcadeDrive(int vx, int vz){
- //TODO Normaliser les vitesse : après le calcul, diviser vg et vd par le max entre vg ou vd
+ 
  int vg = vx+vz;
  int vd = vx-vz;
 
@@ -90,15 +89,16 @@ vd=vd/vMax;
 }
 
 void mecanumDrive(int vx, int vy, int vz){
- //TODO Normaliser les vitesses
+
  int vAvG = vx+vz+vy;
  int vAvD = vx-vz+vy;
  int vArG = vx+vz-vy;
  int vArD = vx-vz-vy;
 
-int vMaxAvGAvD = max(abs(vAvG),abs(vAvD));
-int vMaxArGArD = max(abs(vArG),abs(vArD));
-int vMax = max(abs(vMaxAvGAvD),abs(vMaxArGArD));
+
+int vMax = max(max(abs(vAvG),abs(vAvD))
+          ,max(abs(vArG),abs(vArD))
+          );
 
 vAvG= vAvG/vMax;
 vAvD= vAvD/vMax;
@@ -119,8 +119,9 @@ Encoder encodeurAvD(19,38);
 Encoder encodeurArG(3,49);
 Encoder encodeurArD(2,A1);
 
-long distanceLowLevel(Encoder encodeur){//long pour éviter l'overflow
+long distanceLowLevel(Encoder encodeur){
   distanceLowLevelVariable=encodeur.read()/1000;//diviser par 1000 car c'est environ un tour de shaft
+    //long pour éviter l'overflow
   return distanceLowLevelVariable;
 }
 
