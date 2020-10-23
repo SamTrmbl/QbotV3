@@ -87,8 +87,8 @@ bool Manette::L1(){return bouton(PSB_L1,false);}
 bool Manette::L1Toggle(){return bouton(PSB_L1,true);}
 bool Manette::R1(){return bouton(PSB_R1,false);}
 bool Manette::R1Toggle(){return bouton(PSB_R1,true);}
-bool Manette::L3(){return bouton(PSB_L3,false);}
-bool Manette::L3Toggle(){return bouton(PSB_L3,true);}
-bool Manette::R3(){return bouton(PSB_R3,false);}
-bool Manette::R3Toggle(){return bouton(PSB_R3,true);}
+bool Manette::LJoystickButton(){return bouton(PSB_L3,false);}
+bool Manette::LJoystickButtonToggle(){return bouton(PSB_L3,true);}
+bool Manette::RJoystickButton(){return bouton(PSB_R3,false);}
+bool Manette::RJoystickButtonToggle(){return bouton(PSB_R3,true);}
 

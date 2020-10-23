@@ -5,17 +5,25 @@
 
 /////TODO IL FAUT RENOMMER CE FICHIER Qbot.h
 
-/////TODO Faire une fonction ultrason en adaptant ce lien https://create.arduino.cc/projecthub/abdularbi17/ultrasonic-sensor-hc-sr04-with-arduino-tutorial-327ff6
+/////TODO Faire une fonction ultrason en adaptant ce lien https://create.arduino.cc/projecthub/abdularbi17/ultrasonic-sensor-hc-sr04-with-arduino-tutorial-327ff6  FAIT
 
 //TODO faire une fonction limit switch qui retourne un bool
 
 //Pour savoir les # de pins pour Ultrasonic et Sensor, mettre un chiffre bidon, je vais m'occuper de les trouver
 
-///////Définition des moteurs de chaque roues
 int vitesse;
 bool direction;
 int distanceLowLevelVariable;
 
+int ultrason(){
+  Ultrasonic ultrason(1,1);
+  int distanceUltraSonic;
+
+  distanceUltraSonic= ultrason.read();
+  return distanceUltraSonic;
+}
+
+///////Définition des moteurs de chaque roues
 void vitesseRoueLowLevel(int pinA, int pinB, int pinPWM, float vitesse){
   //TODO ajouter une deadband
   vitesse = constrain(vitesse,-100,100);// accepte des valeurs de -100 à 100
