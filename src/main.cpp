@@ -17,7 +17,9 @@ void loop() {
 
 
 
+  //mecanumDrive(manette.LY(),manette.LX(), manette.RX());
   arcadeDrive(manette.LY(), manette.RX());
+
   Serial.println(distance());
  //simpleDrive(manette.LY());
 

@@ -69,11 +69,6 @@ void arcadeDrive(int vx, int vz){//Avancer et tourner. +x = avant, +z = tourne h
  int vg = vx+vz;
  int vd = vx-vz;
 
-/*int vMax = max(abs(vg),abs(vd));//normalisation des vitesses
-
-if(vMax>100){vg=vg/vMax*100;
-vd=vd/vMax*100;}
-*/
 
  vitesseAvG(vg);
  vitesseAvD(vd);
@@ -83,22 +78,10 @@ vd=vd/vMax*100;}
 
 void mecanumDrive(int vx, int vy, int vz){//+x = en avant, +y = droite, +z = horaire
 
-//SAM : À VALIDER
  int vAvG = vx+vz+vy;
- int vAvD = vx-vz+vy;
+ int vAvD = vx-vz-vy;
  int vArG = vx+vz-vy;
- int vArD = vx-vz-vy;
-
-//TODOnormalisation à adapter selon arcadeDrive
-/*int vMax = max(
-                max(abs(vAvG),abs(vAvD)),
-                max(abs(vArG),abs(vArD))
-          );
-
-vAvG= vAvG/vMax*100;
-vAvD= vAvD/vMax*100;
-vArG= vArG/vMax*100;
-vArD= vArD/vMax*100;*/
+ int vArD = vx-vz+vy;
 
  vitesseAvG(vAvG);
  vitesseAvD(vAvD);
