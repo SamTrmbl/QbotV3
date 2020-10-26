@@ -3,24 +3,22 @@
 
 Manette manette;
 
+bool toggle;
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
+
   manette.begin();
 
 }
 
 void loop() {
-
   manette.read();
+  Serial.println();
+  simpleDrive(manette.LY());
+
+  
 
 
-
-
-  //mecanumDrive(manette.LY(),manette.LX(), manette.RX());
-  arcadeDrive(manette.LY(), manette.RX());
-
-  Serial.println(distance());
- //simpleDrive(manette.LY());
 
 }

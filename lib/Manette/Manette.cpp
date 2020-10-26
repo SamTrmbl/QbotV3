@@ -3,6 +3,7 @@
 #include <Manette.h>
 
 Manette::Manette() : _ps2x() {
+
 }
 
 //Doit être placé au début du SETUP

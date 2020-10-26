@@ -3,18 +3,22 @@
 Elles sont appellées dans le platformio.ini*/
 #include <Encoder.h>
 #include <Ultrasonic.h>
+#include <Wire.h>
+#include <MPU6050_light.h>
 
+MPU6050 gyro(Wire);
 
-
-/*Ultrasonic capteurUltrason(1,1); //SAM Trouver les pins, valider
-
-int ultrason(){
-  return  capteurUltrason.read();
+void gyroSetup(){
+  Wire.begin();
+  gyro.begin();
+  delay(1000);
+  gyro.calcGyroOffsets();
 }
 
-bool antenne(){//SAM trouver la pin du sensor, s'assurer que cliquer = False
-  return digitalRead(6);
-}*/
+int angle(){
+  gyro.update();
+  return gyro.getAngleY();
+}
 
 ///////Définition des moteurs de chaque roues
 void vitesseRoueLowLevel(int pinA, int pinB, int pinPWM, float vitesse){
@@ -140,4 +144,14 @@ long distanceGauche(){
   return (distanceAvG() + distanceArG())/2;
 }
 
+/////Quelques capteurs
 
+Ultrasonic capteurUltrason(24,22); //pins dans le même sens que sur le capteur
+
+int ultrason(){
+  return  capteurUltrason.read();
+}
+
+bool limitSwitch(){//branchée sur senseur, cliquée = False
+  return digitalRead(39);
+}
