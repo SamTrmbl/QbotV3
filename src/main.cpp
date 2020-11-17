@@ -11,7 +11,9 @@ void setup() {
   Serial.begin(9600);
 
  // manette.begin();
-  gyroBegin(-6.48,0.94,-4.7);
+  
+  gyroBegin(-6.48,0.94,-4.7);//Les 3 chiffres sont la calibration du gyro. 
+                             //Si (0,0,0), le gyro va se calibrer, voir le moniteur série pour les valeurs
 
 }
 
