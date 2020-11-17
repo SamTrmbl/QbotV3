@@ -3,22 +3,9 @@
 Elles sont appellées dans le platformio.ini*/
 #include <Encoder.h>
 #include <Ultrasonic.h>
+#include <MPU6050_tockn.h>
 #include <Wire.h>
-#include <MPU6050_light.h>
 
-MPU6050 gyro(Wire);
-
-void gyroSetup(){
-  Wire.begin();
-  gyro.begin();
-  delay(1000);
-  gyro.calcGyroOffsets();
-}
-
-int angle(){
-  gyro.update();
-  return gyro.getAngleY();
-}
 
 ///////Définition des moteurs de chaque roues
 void vitesseRoueLowLevel(int pinA, int pinB, int pinPWM, float vitesse){
@@ -155,3 +142,26 @@ int ultrason(){
 bool limitSwitch(){//branchée sur senseur, cliquée = False
   return digitalRead(39);
 }
+
+///////GYRO
+
+MPU6050 mpu(Wire);
+void gyroBegin(float offsetX, float offsetY, float offsetZ){
+  Wire.begin();
+  mpu.begin();
+  if (offsetX == 0 and offsetY == 0 and offsetZ ==0){
+    mpu.calcGyroOffsets(true);
+  }
+  else{
+    mpu.setGyroOffsets(offsetX, offsetY, offsetZ);
+  }
+  
+}
+
+int angle(){
+  mpu.update();
+  delay(50);
+  return mpu.getGyroAngleZ();
+  
+}
+

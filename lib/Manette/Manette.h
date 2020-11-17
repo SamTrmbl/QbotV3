@@ -4,12 +4,14 @@
 #include <PS2X_lib.h>
 
 
+
 class Manette{
 
     public:
     Manette();
     void begin();//À mettre dans le setup
     void read();//À mettre dans le loop, patch pour que les toggle fonctionnent
+    
 
     int axis(byte axe);
     int LY();
