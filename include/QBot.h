@@ -5,7 +5,7 @@ Elles sont appellées dans le platformio.ini*/
 #include <Ultrasonic.h>
 #include <MPU6050_tockn.h>
 #include <Wire.h>
-
+#include <Servo.h>
 
 ///////Définition des moteurs de chaque roues
 void vitesseRoueLowLevel(int pinA, int pinB, int pinPWM, float vitesse){
@@ -163,5 +163,28 @@ int angle(){
   delay(50);
   return mpu.getGyroAngleZ();
   
+}
+
+///////Servo
+
+Servo servo1();
+Servo servo2();
+Servo servo3();
+
+
+long angleServo(Servo servo(), int angle){
+  servo().write(angle);
+}
+
+long servo1(int angle){
+  return angleServo(servo1, angle);
+}
+
+long servo2(int angle){
+  return angleServo(servo2, angle);
+}
+
+long servo3(int angle){
+  return angleServo(servo3, angle);
 }
 
