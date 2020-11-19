@@ -167,17 +167,23 @@ int angle(){
 
 ///////Servo
 
-Servo servo1();
+//TODO : ôter le "1"
+//TODO : changer le type de fonctions pour void
+//TODO : renommer les Servo pour servomoteurX (sans les paranthèse)
+//TODO : Ajouter une constrain sur l'angle du servomoteur (voir ligne 13)
+//TODO : Créer une fonction servoBegin qui connecte les 3 servomoteurs (à caller dans le begin)
+
+Servo servomoteur1;
 Servo servo2();
 Servo servo3();
 
 
-long angleServo(Servo servo(), int angle){
-  servo().write(angle);
+long angleServo(Servo servomoteur, int angle){
+  servomoteur.write(angle);
 }
 
 long servo1(int angle){
-  return angleServo(servo1, angle);
+  return angleServo(servomoteur1, angle);
 }
 
 long servo2(int angle){
