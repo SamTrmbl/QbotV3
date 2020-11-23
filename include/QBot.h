@@ -167,13 +167,12 @@ float rawAngle(){
 }
 
 float angle(){
-  return rawAngle()-resetAngle;
+  return rawAngle()-resetAngle;//resetAngle se met à jour quand gyroReset est callé
 }
 
 void gyroReset(){
-  delay(50);
+  //Mettre à jour le resetAngle afin de ramener la valeur à 0
   resetAngle=rawAngle();
-  delay(50);
 }
 
 ///////Servo
