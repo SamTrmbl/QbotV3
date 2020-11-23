@@ -158,11 +158,22 @@ void gyroBegin(float offsetX, float offsetY, float offsetZ){
   
 }
 
-int angle(){
+float resetAngle=0;
+
+float rawAngle(){
   mpu.update();
   delay(50);
   return mpu.getGyroAngleZ();
-  
+}
+
+float angle(){
+  return rawAngle()-resetAngle;
+}
+
+void gyroReset(){
+  delay(50);
+  resetAngle=rawAngle();
+  delay(50);
 }
 
 ///////Servo
@@ -177,7 +188,7 @@ Servo servomoteur1;
 Servo servo2();
 Servo servo3();
 
-
+/*
 long angleServo(Servo servomoteur, int angle){
   servomoteur.write(angle);
 }
@@ -192,5 +203,5 @@ long servo2(int angle){
 
 long servo3(int angle){
   return angleServo(servo3, angle);
-}
+}*/
 
