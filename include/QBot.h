@@ -177,30 +177,29 @@ void gyroReset(){
 
 ///////Servo
 
-//TODO : ôter le "1"
-//TODO : changer le type de fonctions pour void
-//TODO : renommer les Servo pour servomoteurX (sans les paranthèse)
-//TODO : Ajouter une constrain sur l'angle du servomoteur (voir ligne 13)
-//TODO : Créer une fonction servoBegin qui connecte les 3 servomoteurs (à caller dans le begin)
-
 Servo servomoteur1;
-Servo servo2();
-Servo servo3();
+Servo servomoteur2;
+Servo servomoteur3;
 
-/*
-long angleServo(Servo servomoteur, int angle){
+void servoBegin(){
+servomoteur1.attach(44);
+servomoteur2.attach(45);
+servomoteur3.attach(46);
+}
+
+void angleServo(Servo servomoteur, int angle){
+  angle = constrain(angle,10,170);
   servomoteur.write(angle);
 }
 
-long servo1(int angle){
+void servo1(int angle){
   return angleServo(servomoteur1, angle);
 }
 
-long servo2(int angle){
-  return angleServo(servo2, angle);
+void servo2(int angle){
+  return angleServo(servomoteur2, angle);
 }
 
-long servo3(int angle){
-  return angleServo(servo3, angle);
-}*/
-
+void servo3(int angle){
+  return angleServo(servomoteur3, angle);
+}
