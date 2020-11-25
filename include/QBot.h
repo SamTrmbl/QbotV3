@@ -177,12 +177,12 @@ void gyroReset(){
 
 ///////Servo
 
-Servo servomoteur1;
+Servo servomoteur;
 Servo servomoteur2;
 Servo servomoteur3;
 
 void servoBegin(){
-servomoteur1.attach(44);
+servomoteur.attach(44);
 servomoteur2.attach(45);
 servomoteur3.attach(46);
 }
@@ -192,8 +192,8 @@ void angleServo(Servo servomoteur, int angle){
   servomoteur.write(angle);
 }
 
-void servo1(int angle){
-  return angleServo(servomoteur1, angle);
+void servo(int angle){
+  return angleServo(servomoteur, angle);
 }
 
 void servo2(int angle){
