@@ -7,7 +7,10 @@
 void setup() {
   //Serial.begin(9600);
   //manette.begin();
-  //gyroBegin(0,0,0); //Mettre (0,0,0)pour calibrer, voir le moniteur série pour les valeurs
+  //gyroBegin(0,0,0);
+  //servoBegin();
+
+  
 }
 
 void loop() {
