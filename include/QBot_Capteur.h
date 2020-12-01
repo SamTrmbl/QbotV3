@@ -9,6 +9,6 @@ int ultrason(){
   return  capteurUltrason.read();
 }
 
-bool limitSwitch(){//branchée sur senseur, cliquée = False
+bool limitSwitch(){//branchée sur "sensor", cliquée = False
   return digitalRead(39);
 }

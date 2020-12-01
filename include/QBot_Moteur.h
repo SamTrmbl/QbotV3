@@ -2,7 +2,8 @@
 
 /////MOTEURS
 
-///////Définition des moteurs de chaque roues
+
+//Fonction de base pour controler la direction et la vitesse d'une roue.
 void vitesseRoueLowLevel(int pinA, int pinB, int pinPWM, float vitesse){
   int _vitesse = vitesse;
   _vitesse = constrain(_vitesse,-100,100);// accepte des valeurs de -100 à 100
@@ -16,6 +17,9 @@ void vitesseRoueLowLevel(int pinA, int pinB, int pinPWM, float vitesse){
   digitalWrite(pinB,direction);
   analogWrite(pinPWM, abs(_vitesse));
 }
+
+
+///////Définition des moteurs de chaque roues
 
 void vitesseAvG(int vitesse){
   vitesseRoueLowLevel(34,35,12,vitesse);
@@ -41,6 +45,7 @@ void stop(){
   vitesseArD(0);
   vitesseArG(0);
 } 
+
 //Tous les drives prennents de valeurs de -100 à +100
 void simpleDrive(int vitesse){//Avancer-reculer. + = en avant
   

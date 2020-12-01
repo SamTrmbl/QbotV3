@@ -14,12 +14,12 @@ void Manette::begin(){
 }
 
 //Doit être placé au début du LOOP, 
-//remplace la lecture du gamepad dans la fonction bouton 
+//Lecture du gamepad à chaque itération de la boucle
 void Manette::read(){
     _ps2x.read_gamepad();
 }
 
-//Cette fonction est callée explicitement pour chaque axe ci-bas
+//Fonction générique pour obtenir les valeurs d'axe de joystick
 int Manette::axis(byte axe){
     _axe = axe;
     _ps2x.read_gamepad();
@@ -51,8 +51,6 @@ int Manette::RX(){
 bool Manette::bouton(int bouton, bool debouncer){
     _bouton = bouton;
     _debouncer = debouncer;
-    //_ps2x.read_gamepad(); //Ceci fonctionne bien pour les fonctions de base, mais pas le toggle. Voir read()
-    //delay(10);
     if (_debouncer)
     {
         return _ps2x.ButtonPressed(_bouton);
