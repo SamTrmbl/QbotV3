@@ -3,17 +3,18 @@
 
 //Manette manette;
 
-
+Servo servo;
 void setup() {
   //Serial.begin(9600);
   //manette.begin();
   //gyroBegin(0,0,0);
   //servoBegin();
-
   
 }
 
 void loop() {
   //manette.read();
+  
+  
 
 }
