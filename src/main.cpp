@@ -3,18 +3,23 @@
 
 //Manette manette;
 
-Servo servo;
+
+float kP = 2; // à calibrer pour chaque robot
+
+
 void setup() {
-  //Serial.begin(9600);
+  Serial.begin(9600);
   //manette.begin();
-  //gyroBegin(0,0,0);
+  gyroBegin(-6.85,0.92,-4.62);
   //servoBegin();
   
 }
 
 void loop() {
   //manette.read();
-  
+
+  arcadeDrive(50,-kP*angle());
+
   
 
 }
