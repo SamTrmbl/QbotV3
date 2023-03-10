@@ -16,6 +16,13 @@ void vitesseRoueLowLevel(int pinA, int pinB, int pinPWM, float vitesse){
   digitalWrite(pinA,!direction); //Pour avancer, la pin A est à 0 et la pin B est à 1
   digitalWrite(pinB,direction);
   analogWrite(pinPWM, abs(_vitesse));
+
+  //Fix automatique pour régler la différence entre les deux modèles de shield
+  if (pinPWM == 9){
+    //Si on demande d'envoyer une information à la pin 9, on envoit la même à la pin 6
+    //Donc les deux modèles de shields vont fonctionner
+    analogWrite(6, abs(_vitesse));
+  }
 }
 
 

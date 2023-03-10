@@ -7,11 +7,13 @@ robotique de 3e secondaire de la Polyvalente de Charlesbourg.
 
 Cette librairie a été conçue par Vincent Lavoie, Jayson Poirier et Samuel Tremblay.
  
-Contact : samuel.tremblay.2@csdps.qc.ca
+Contact : samuel.tremblay.2@cssps.gouv.qc.ca
 
 Creative Commons BY-NC-SA
 
 V3.0 : Release initial, décembre 2020.
+V3.1 : Ajout de la procédure pour corriger le pinout différent 
+       des shields achetés l'été précédent, décembre 2022.
 */
 
 #ifndef MANETTE_H
