@@ -9,7 +9,7 @@ Manette::Manette() : _ps2x() {
 //Doit être placé au début du SETUP
 //initialise la manette aux bons ports
 void Manette::begin(){
-    _ps2x.config_gamepad(50, 51, 53, 52, false, false);
+    _ps2x.config_gamepad(13, 12, 10, 11, false, false);
 
 }
 
