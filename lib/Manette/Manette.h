@@ -14,6 +14,9 @@ Creative Commons BY-NC-SA
 V3.0 : Release initial, décembre 2020.
 V3.1 : Ajout de la procédure pour corriger le pinout différent 
        des shields achetés l'été précédent, décembre 2022.
+V3.2 : Gestion automatique des 2 modèles de shields, renommer
+       les fonctions Toggle en UneFois pour mieux refléter leur
+       fonction. Avril 2023
 */
 
 #ifndef MANETTE_H
@@ -37,39 +40,39 @@ class Manette{
     int RY();
     int RX();
 
-    bool bouton (int bouton, bool debouncer);
+    bool bouton (int bouton, bool uneFois);
     bool triangle();
-    bool triangleToggle();
+    bool triangleUneFois();
     bool square();
-    bool squareToggle();
+    bool squareUneFois();
     bool circle();
-    bool circleToggle();
+    bool circleUneFois();
     bool cross();
-    bool crossToggle();
+    bool crossUneFois();
     bool dPadUp();
-    bool dPadUpToggle();
+    bool dPadUpUneFois();
     bool dPadRight();
-    bool dPadRightToggle();
+    bool dPadRightUneFois();
     bool dPadDown();
-    bool dPadDownToggle();
+    bool dPadDownUneFois();
     bool dPadLeft();
-    bool dPadLeftToggle();
+    bool dPadLeftUneFois();
     bool start();
-    bool startToggle();
+    bool startUneFois();
     bool select();
-    bool selectToggle();
+    bool selectUneFois();
     bool L2();
-    bool L2Toggle();
+    bool L2UneFois();
     bool R2();
-    bool R2Toggle();
+    bool R2UneFois();
     bool L1();
-    bool L1Toggle();
+    bool L1UneFois();
     bool R1();
-    bool R1Toggle();
+    bool R1UneFois();
     bool LJoystickButton();
-    bool LJoystickButtonToggle();
+    bool LJoystickButtonUneFois();
     bool RJoystickButton();
-    bool RJoystickButtonToggle();
+    bool RJoystickButtonUneFois();
 
 
 
@@ -78,7 +81,7 @@ class Manette{
     PS2X _ps2x;
     byte _axe;
     int _bouton;
-    bool _debouncer;
+    bool _uneFois;
 
         
 };
