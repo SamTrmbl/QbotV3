@@ -1,25 +1,18 @@
 #include <Manette.h>//Le dossier (pas le zip) de la librairie P2X_lib doit être dans le dossier "lib"
-#include <MSAbot.h> //Ce fichier doit être dans le dossier "include"
+#include <Qbot.h> //Ce fichier doit être dans le dossier "include"
 
-Manette manette;
+//Manette manette;
 
-void conduire();
 
 void setup() {
-  Serial.begin(9600);
-  manette.begin();
-  servoBegin();
+  //Serial.begin(9600);
+  //manette.begin();
+  //gyroBegin(0,0,0);
+  //servoBegin();
   
 }
 
 void loop() {
-  manette.read();
-  conduire();
+  //manette.read();
 
-}
-
-
-//La fonction qui permet de conduire le robot
-void conduire(){
-    arcadeDrive(manette.LY(), manette.RX());
 }
