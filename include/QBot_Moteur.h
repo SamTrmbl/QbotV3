@@ -37,9 +37,10 @@ void vitesseAvD(int vitesse){
 }
 
 void vitesseArG(int vitesse){
-  /*Les shields avec un point rouge utilise la pin 6 au lieu de 9.
-  La fonction distanceLowLevel gère automatiquement cette différence
-  en envoyant l'information simultanément aux deux pins*/
+  /*!!!!!!!!
+  Pour les shields avec un point ROUGE, il faut changer le 9 pour un 6.
+  Enregistre et utilise toujours cette version modifiée de la librairie.
+  !!!!!!!!*/
   vitesseRoueLowLevel(43,42,9,vitesse);
 }
 

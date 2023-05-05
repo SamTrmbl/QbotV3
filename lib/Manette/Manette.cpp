@@ -48,10 +48,10 @@ int Manette::RX(){
 
 
 //Fonction générique pour créer les boutons
-bool Manette::bouton(int bouton, bool uneFois){
+bool Manette::bouton(int bouton, bool debouncer){
     _bouton = bouton;
-    _uneFois = uneFois;
-    if (_uneFois)
+    _debouncer = debouncer;
+    if (_debouncer)
     {
         return _ps2x.ButtonPressed(_bouton);
     }
@@ -63,37 +63,37 @@ bool Manette::bouton(int bouton, bool uneFois){
 
 
 
-//Créeation de tous les boutons, en version APPUYER et en version UneFois
+//Créeation de tous les boutons, en version APPUYER et en version TOGGLE
 bool Manette::triangle(){return bouton(PSB_TRIANGLE,false);}
-bool Manette::triangleUneFois(){return bouton(PSB_TRIANGLE,true);}
+bool Manette::triangleToggle(){return bouton(PSB_TRIANGLE,true);}
 bool Manette::square(){return bouton(PSB_SQUARE,false);}
-bool Manette::squareUneFois(){return bouton(PSB_SQUARE,true);}
+bool Manette::squareToggle(){return bouton(PSB_SQUARE,true);}
 bool Manette::circle(){return bouton(PSB_CIRCLE,false);}
-bool Manette::circleUneFois(){return bouton(PSB_CIRCLE,true);}
+bool Manette::circleToggle(){return bouton(PSB_CIRCLE,true);}
 bool Manette::cross(){return bouton(PSB_CROSS,false);}
-bool Manette::crossUneFois(){return bouton(PSB_CROSS,true);}
+bool Manette::crossToggle(){return bouton(PSB_CROSS,true);}
 bool Manette::dPadUp(){return bouton(PSB_PAD_UP,false);}
-bool Manette::dPadUpUneFois(){return bouton(PSB_PAD_UP,true);}
+bool Manette::dPadUpToggle(){return bouton(PSB_PAD_UP,true);}
 bool Manette::dPadRight(){return bouton(PSB_PAD_RIGHT,false);}
-bool Manette::dPadRightUneFois(){return bouton(PSB_PAD_RIGHT,true);}
+bool Manette::dPadRightToggle(){return bouton(PSB_PAD_RIGHT,true);}
 bool Manette::dPadDown(){return bouton(PSB_PAD_DOWN,false);}
-bool Manette::dPadDownUneFois(){return bouton(PSB_PAD_DOWN,true);}
+bool Manette::dPadDownToggle(){return bouton(PSB_PAD_DOWN,true);}
 bool Manette::dPadLeft(){return bouton(PSB_PAD_LEFT,false);}
-bool Manette::dPadLeftUneFois(){return bouton(PSB_PAD_LEFT,true);}
+bool Manette::dPadLeftToggle(){return bouton(PSB_PAD_LEFT,true);}
 bool Manette::start(){return bouton(PSB_START,false);}
-bool Manette::startUneFois(){return bouton(PSB_START,true);}
+bool Manette::startToggle(){return bouton(PSB_START,true);}
 bool Manette::select(){return bouton(PSB_SELECT,false);}
-bool Manette::selectUneFois(){return bouton(PSB_SELECT,true);}
+bool Manette::selectToggle(){return bouton(PSB_SELECT,true);}
 bool Manette::L2(){return bouton(PSB_L2,false);}
-bool Manette::L2UneFois(){return bouton(PSB_L2,true);}
+bool Manette::L2Toggle(){return bouton(PSB_L2,true);}
 bool Manette::R2(){return bouton(PSB_R2,false);}
-bool Manette::R2UneFois(){return bouton(PSB_R2,true);}
+bool Manette::R2Toggle(){return bouton(PSB_R2,true);}
 bool Manette::L1(){return bouton(PSB_L1,false);}
-bool Manette::L1UneFois(){return bouton(PSB_L1,true);}
+bool Manette::L1Toggle(){return bouton(PSB_L1,true);}
 bool Manette::R1(){return bouton(PSB_R1,false);}
-bool Manette::R1UneFois(){return bouton(PSB_R1,true);}
+bool Manette::R1Toggle(){return bouton(PSB_R1,true);}
 bool Manette::LJoystickButton(){return bouton(PSB_L3,false);}
-bool Manette::LJoystickButtonUneFois(){return bouton(PSB_L3,true);}
+bool Manette::LJoystickButtonToggle(){return bouton(PSB_L3,true);}
 bool Manette::RJoystickButton(){return bouton(PSB_R3,false);}
-bool Manette::RJoystickButtonUneFois(){return bouton(PSB_R3,true);}
+bool Manette::RJoystickButtonToggle(){return bouton(PSB_R3,true);}
 

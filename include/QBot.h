@@ -14,9 +14,6 @@ Creative Commons BY-NC-SA
 V3.0 : Release initial, décembre 2020.
 V3.1 : Ajout de la procédure pour corriger le pinout différent 
        des shields achetés l'été précédent, décembre 2022.
-V3.2 : Gestion automatique des 2 modèles de shields, renommer
-       les fonctions Toggle en UneFois pour mieux refléter leur
-       fonction. Avril 2023
 */
 
 //Tous ces fichiers doivent être dans le dossier "include"
