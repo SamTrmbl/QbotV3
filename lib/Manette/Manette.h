@@ -17,6 +17,9 @@ V3.1 : Ajout de la procédure pour corriger le pinout différent
 V3.2 : Gestion automatique des 2 modèles de shields, renommer
        les fonctions Toggle en UneFois pour mieux refléter leur
        fonction. Avril 2023
+V3.3 : Dédoublement des fonctions "boutons" de la manette pour
+       accomoder les deux modèles différents de manettes.
+       Novembre 2024.
 */
 
 #ifndef MANETTE_H
@@ -74,7 +77,16 @@ class Manette{
     bool RJoystickButton();
     bool RJoystickButtonUneFois();
 
-
+    //Nouvelles manettes
+    bool A();
+    bool AUneFois();
+    bool B();
+    bool BUneFois();
+    bool X();
+    bool XUneFois();
+    bool Y();
+    bool YUneFois();
+    
 
     
     private:

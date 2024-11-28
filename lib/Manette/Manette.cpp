@@ -97,3 +97,13 @@ bool Manette::LJoystickButtonUneFois(){return bouton(PSB_L3,true);}
 bool Manette::RJoystickButton(){return bouton(PSB_R3,false);}
 bool Manette::RJoystickButtonUneFois(){return bouton(PSB_R3,true);}
 
+//Dédoublement des boutons pour le nouveau modèle de manette
+bool Manette::A(){return cross();}
+bool Manette::AUneFois(){return crossUneFois();}
+bool Manette::B(){return circle();}
+bool Manette::BUneFois(){return circleUneFois();}
+bool Manette::X(){return square();}
+bool Manette::XUneFois(){return squareUneFois();}
+bool Manette::Y(){return triangle();}
+bool Manette::YUneFois(){return triangleUneFois();}
+
